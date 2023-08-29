@@ -1,4 +1,4 @@
-1- Installation de Xampp
+1- <strong>Installation de Xampp</strong>
 
 Télécharger xampp sur le site officiel: https://www.apachefriends.org/fr/index.html
 
