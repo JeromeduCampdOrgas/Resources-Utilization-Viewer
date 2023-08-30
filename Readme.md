@@ -19,3 +19,13 @@ cliquer sur "Nouvelle base de données"
 donner un nom à la nouvelle base de données puis cliquer sur "Créer"
 
 ![NameBdd](https://github.com/JeromeduCampdOrgas/Resources-Utilization-Viewer/blob/master/Images/nomBdd.JPG)
+
+3- <strong>Télécharger et Installer l'application en local</strong>
+
+->Aller sur "https://github.com/bigprof-software/resources-utilization-viewer"
+Dans le Readme.md, scroller vers le bas et cliquer sur "(Change log)"" sur "⇩ Download the latest release (Changelog)"
+![changelog](https://github.com/JeromeduCampdOrgas/Resources-Utilization-Viewer/blob/master/Images/changelog.JPG)
+
+Télécharger le source code(zip) d'une release
+
+![release](https://github.com/JeromeduCampdOrgas/Resources-Utilization-Viewer/blob/master/Images/release.JPG)
