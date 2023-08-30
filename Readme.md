@@ -29,3 +29,7 @@ Dans le Readme.md, scroller vers le bas et cliquer sur "(Change log)"" sur "⇩ 
 Télécharger le source code(zip) d'une release
 
 ![release](https://github.com/JeromeduCampdOrgas/Resources-Utilization-Viewer/blob/master/Images/release.JPG)
+
+dézipper le fichier téléchargé dans un dossier que vous auréz créé dans le sous-dossier "htdocs de votre dossier "xampp"
+
+![htdocs](https://github.com/JeromeduCampdOrgas/Resources-Utilization-Viewer/blob/master/Images/htdocsDezip.JPG)
