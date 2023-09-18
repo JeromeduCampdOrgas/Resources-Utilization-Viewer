@@ -1,0 +1,22 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('http://localhost/resources-utilization-viewer/app/index.php');
+  await page.goto('http://localhost/resources-utilization-viewer/app/index.php?signIn=1');
+  await page.getByPlaceholder('ID utilisateur').click();
+  await page.getByPlaceholder('ID utilisateur').fill('jerome');
+  await page.getByPlaceholder('ID utilisateur').press('Tab');
+  await page.getByPlaceholder('Mot de passe').fill('PeriLsf37');
+  await page.getByRole('button', { name: 'Ouvrir une session' }).click();
+  await page.getByRole('link', { name: 'Resources', exact: true }).click();
+  await page.getByRole('button', { name: ' Ajouter' }).click();
+  await page.getByLabel('Name').click();
+  await page.getByLabel('Name').fill('test');
+  await page.getByRole('button', { name: ' Sauvegarder' }).click();
+  await page.getByRole('link', { name: ' Ajouter' }).click();
+  await page.frameLocator('iframe').locator('#s2id_ProjectId-container').getByRole('link').click();
+  await page.frameLocator('iframe').getByText('Projet 3').click();
+  await page.frameLocator('iframe').getByRole('link', { name: 'test' }).click();
+  await page.frameLocator('iframe').locator('#select2-drop').getByText('test').click();
+  await page.frameLocator('iframe').getByRole('button', { name: ' Sauvegarder' }).click();
+  await page.frameLocator('iframe').getByRole('button', { name: ' Sauvegarder' }).click();

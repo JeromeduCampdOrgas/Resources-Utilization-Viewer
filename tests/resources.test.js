@@ -6,36 +6,6 @@ test.describe.only("test_connexion", () => {
     await page.goto(URL);
   });
   test("Ajouter une ressource", async ({ page }) => {
-    /*const newResourceId = newResource.id;
-    //Etape 1: connexion Administrateur
-    await expect(page).toHaveURL(/.*signIn=1/);
-    await page.locator("#username").fill(user);
-    await page.locator("#password").fill(MDPP);
-    await page.locator("#submit").click();
-    await expect(page).toHaveURL(/.*index.php/);
-    //Etape 2:clique sur le  bloc-menu "Resources"
-    await page.getByRole("link", { name: "Resources", exact: true }).click();
-    //Etape3 : cliquer sur ajouter et renseigner les champs
-    await page.locator(".pull-left #addNew").click();
-    await page.locator("#Name").fill(newResourceId);
-    const checkBox = await page.locator("#Available");
-    await expect(checkBox).toHaveAttribute("value", "1");
-    await page.locator("#insert").click();
-    await page.locator("#update").click();
-    //retour à la liste
-    await page.goto(URL);
-    await page.getByRole("link", { name: "Resources", exact: true }).click();
-    //Etape 4: vérification de la création du nouveau collaborateur
-    const locator = page.getByRole("link").getByText("userTest");
-    await locator.click();
-
-    //Etape 5: suppression du nouveau collaborateur
-
-    page.once("dialog", (dialog) => {
-      console.log(`Dialog message: ${dialog.message()}`);
-      dialog.dismiss().catch(() => {});
-    });
-    await page.locator("#delete").click();*/
     await page.goto(
       "http://localhost/resources-utilization-viewer/app/index.php"
     );
@@ -61,10 +31,8 @@ test.describe.only("test_connexion", () => {
     await page.getByRole("link", { name: "test2" }).click();
     await page.getByLabel("Name").click();
     await page.getByLabel("Name").fill("test2test2");
-    const dispo = await page.locator("#Available");
-    await dispo.uncheck();
     await page.getByRole("button", { name: " Sauvegarder" }).click();
-    /********************************************* */
+
     await page.getByRole("link", { name: " Ajouter" }).click();
     await page
       .frameLocator("iframe")
@@ -76,20 +44,37 @@ test.describe.only("test_connexion", () => {
       .frameLocator("iframe")
       .getByRole("button", { name: " Sauvegarder" })
       .click();
-    /******************************************** */
-    /*await page.getByRole("button", { name: " Sauvegarder" }).click();
-
-    //Retour à la liste
+    await page
+      .frameLocator("iframe")
+      .getByRole("button", { name: " Retour" })
+      .click();
+    /********** Uncheck dispo*********************** */
+    await page.locator("#Available").uncheck();
+    await page.getByRole("button", { name: " Sauvegarder" }).click();
+    //Reour tableau de bord
     await page.getByRole("button", { name: " Retour" }).click();
 
-    //Suppression nouvelle ressource
+    //Accès gestion ressources
+    await page.getByRole("link", { name: "Resources", exact: true }).click();
+    //Retour au tableau de bord
+    await page.getByRole("link", { name: " Resources Utilization" }).click();
+    //
+    await page.getByRole("link", { name: "Assignments", exact: true }).click();
+    await page.getByRole("link", { name: "test2test2" }).click();
+    //Activation accès boîte de dialogue
+    page.on("dialog", (dialog) => dialog.accept());
+    await page.getByRole("button", { name: " Effacer" }).click();
 
+    //Suppression nouvelle ressource
+    //Retour au tableau de bord
+    await page.getByRole("link", { name: " Resources Utilization" }).click();
+    await page.getByRole("link", { name: "Resources", exact: true }).click();
     await page.getByRole("link", { name: "test2test2" }).click();
     await page.getByLabel("Name").click();
     page.once("dialog", (dialog) => {
       console.log(`Dialog message: ${dialog.message()}`);
       dialog.accept().catch(() => {});
     });
-    await page.getByRole("button", { name: " Effacer" }).click();*/
+    await page.getByRole("button", { name: " Effacer" }).click();
   });
 });
