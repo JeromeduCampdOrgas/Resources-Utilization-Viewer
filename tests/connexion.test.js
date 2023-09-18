@@ -1,12 +1,9 @@
 import { test, expect } from "@playwright/test";
-import { user, MDPP } from "../variables/variablesCX";
+import { URL, user, MDPP } from "../variables/variablesCX";
 
-test.describe.only("test_connexion", () => {
+test.describe("test_connexion", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto(
-      "http://localhost/resources-utilization-viewer/app/index.php"
-    );
-    //await page.locator('strong:has-text("Français")').click();
+    await page.goto(URL);
   });
   test("Connexion Passante", async ({ page }) => {
     await expect(page).toHaveURL(/.*signIn=1/);
